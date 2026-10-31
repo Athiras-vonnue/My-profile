@@ -1,0 +1,8 @@
+# Tells Netlify the app lives in the my-profile/ subfolder of this repo.
+[build]
+  base = "my-profile"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
