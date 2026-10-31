@@ -1,6 +1,6 @@
 # My Profile (React)
 
-Sample project for OJT Day 2: a profile page built with React.
+A profile page built with React + Vite, with switchable templates.
 
 ## Run it
 
@@ -9,31 +9,19 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173
-
 ## Make it yours
 
-Open `src/data.js` and change the name, about text, skills, projects,
-contact details and GitHub username. You don't need to touch the components
-to personalise the page.
+Edit `src/data/resume.js` — name, summary, skills, experience, projects, contact.
+Every template reads from this one file.
 
-## Where each idea from the session is used
+## Templates
 
-| Idea              | File                                   |
-|-------------------|----------------------------------------|
-| Components        | every file in `src/components/`        |
-| Props             | `SkillCard.jsx`, `ProjectCard.jsx`     |
-| Lists with map()  | `Skills.jsx`, `Projects.jsx`           |
-| useState          | `LikeButton.jsx`, `Contact.jsx`        |
-| onClick           | `LikeButton.jsx`, `Contact.jsx`, `Header.jsx` |
-| Show / hide (&&)  | `Contact.jsx`                          |
-| Dark mode toggle  | `App.jsx` + `Header.jsx`               |
-| API call (fetch)  | `GitHubCard.jsx`                       |
+Each template lives in `src/templates/<name>/`. To add one, create a component
+that takes `{ data }` and register it in `src/templates/index.js`.
 
-## Put it online
+- `modern` — animated student-friendly page (dark/light toggle, typing effect)
+- `sidebar` — classic resume layout
 
-```
-npm run build
-```
+## Deploy
 
-Then drag the `dist` folder onto https://app.netlify.com/drop
+`netlify.toml` (repo root) builds `my-profile/` with `npm run build` and publishes `dist`.
